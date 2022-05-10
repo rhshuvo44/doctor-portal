@@ -10,7 +10,7 @@ import NotFound from './Pages/Share/NotFound/NotFound';
 
 function App() {
   return (
-    <div>
+    <div style={{backgroundColor:'white', color:'black'}}>
       <Header/>
      <Routes>
          <Route path="/" element={<Home />} />
