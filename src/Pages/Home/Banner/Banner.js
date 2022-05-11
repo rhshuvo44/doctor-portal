@@ -18,7 +18,7 @@ const Banner = () => {
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the
           </p>
-          <button class="btn btn-primary">Get Started</button>
+          <button class="btn btn-primary text-white">Get Started</button>
         </div>
       </div>
     </div>
