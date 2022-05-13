@@ -37,13 +37,13 @@ const Services = () => {
           <ServicesCard key={service._id} service={service} />
         ))}
       </div>
-      <div class="hero min-h-screen">
-  <div class="hero-content flex-col lg:flex-row px-20">
-    <img  src={treatment} class="h-96 max-w-sm md:max-w-2xl rounded-lg shadow-2xl" alt=""/>
+      <div className="hero min-h-screen">
+  <div className="hero-content flex-col lg:flex-row px-20">
+    <img  src={treatment} className="h-96 max-w-sm md:max-w-2xl rounded-lg shadow-2xl" alt=""/>
     <div className="px-20">
-      <h1 class="text-5xl font-bold">Exceptional Dental Care, on Your Terms</h1>
-      <p class="py-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page</p>
-      <button class="btn btn-primary text-white">Get Started</button>
+      <h1 className="text-5xl font-bold">Exceptional Dental Care, on Your Terms</h1>
+      <p className="py-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page</p>
+      <button className="btn btn-primary text-white">Get Started</button>
     </div>
   </div>
 </div>
