@@ -39,7 +39,7 @@
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.fontWeight": "normal",
   "terminal.integrated.fontFamily": "Fira Code, Operator Mono",
-  "workbench.colorTheme": "Community Material Theme Darker High Contrast",
+  "workbench.colorTheme": "Learn with Sumit - Peace of the eye - Dracula version",
   "workbench.iconTheme": "vscode-icons",
   // terminal customization
   "workbench.colorCustomizations": {
@@ -63,6 +63,5 @@
     "terminal.ansiRed": "#FB543F",
     "terminal.ansiWhite": "#A89984",
     "terminal.ansiYellow": "#FAC03B"
-  },
-  "workbench.startupEditor": "none"
+  }
 }

@@ -4,12 +4,12 @@ import "./MakeAppointment.css";
 
 const MakeAppointment = () => {
   return (
-    <div className="make-appointment">
+    <div className="make-appointment mt-20">
       <div className="hero">
-        <div className="hero-content flex-col lg:flex-row">
+        <div className="flex flex-col lg:flex-row content-center items-center">
           <img
             src={doctorSmall}
-            className="max-w-sm md:max-w-2xl md:block hidden appointment-img"
+            className="md:block hidden appointment-img"
             alt=""
           />
           <div>
