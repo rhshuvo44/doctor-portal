@@ -10,11 +10,11 @@ const Testomonial = () => {
           </div>
           <img className="w-24 lg:w-48" src={quote} alt="" />
       </div>
-      <div class="carousel carousel-center p-4 space-x-4 rounded-box">
-        <div class="carousel-item">
-          <div class="card w-96 bg-base-100 shadow-xl">
-            <div class="card-body">
-              <h2 class="card-title">Shoes!</h2>
+      <div className="carousel carousel-center p-4 space-x-4 rounded-box">
+        <div className="carousel-item">
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card-body">
+              <h2 className="card-title">Shoes!</h2>
               <p>If a dog chews shoes whose shoes does he choose?</p>
             </div>
             <figure>
@@ -25,10 +25,10 @@ const Testomonial = () => {
             </figure>
           </div>
         </div>
-        <div class="carousel-item">
-          <div class="card w-96 bg-base-100 shadow-xl">
-            <div class="card-body">
-              <h2 class="card-title">Shoes!</h2>
+        <div className="carousel-item">
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card-body">
+              <h2 className="card-title">Shoes!</h2>
               <p>If a dog chews shoes whose shoes does he choose?</p>
             </div>
             <figure>
@@ -39,10 +39,10 @@ const Testomonial = () => {
             </figure>
           </div>
         </div>
-        <div class="carousel-item">
-          <div class="card w-96 bg-base-100 shadow-xl">
-            <div class="card-body">
-              <h2 class="card-title">Shoes!</h2>
+        <div className="carousel-item">
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card-body">
+              <h2 className="card-title">Shoes!</h2>
               <p>If a dog chews shoes whose shoes does he choose?</p>
             </div>
             <figure>
