@@ -5,12 +5,13 @@ const BookingModal = ({ treatment,setTreatment, date }) => {
   const {_id, name, slots } = treatment;
   const handleBooking=e=>{
     e.preventDefault();
+    const id=_id;
     const slot=e.target.slot.value;
     const email=e.target.email.value;
     const phone=e.target.phone.value;
     const name=e.target.name.value;
     const date=e.target.slot.value;
-    console.log(slot);
+    console.log(id,slot,name,email,phone,date);
     setTreatment(null)
   }
   return (

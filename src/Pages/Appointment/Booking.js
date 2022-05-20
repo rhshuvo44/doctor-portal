@@ -3,9 +3,9 @@ import React from 'react';
 const Booking = ({service,setTreatment}) => {
     const {name,slots}=service;
     return (
-        <div className="card w-96">
-        <div className="card-body">
-          <h2 className="card-title text-primary">{name}</h2>
+        <div className="card w-96 shadow-xl mb-20">
+        <div className="card-body text-center">
+          <h2 className="text-2xl text-primary">{name}</h2>
           <p>{
               slots.length ? <span>{slots[0]}</span>: <span className='text-red-500'>No Slot Available</span>
               }</p>
