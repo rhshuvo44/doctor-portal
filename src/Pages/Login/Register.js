@@ -1,12 +1,13 @@
-import React from 'react';
+import React from "react";
 import {
-  useCreateUserWithEmailAndPassword, useSignInWithGoogle
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+  useUpdateProfile
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Looding from "../Share/Looding";
-
 
 const Register = () => {
   const {
@@ -15,12 +16,9 @@ const Register = () => {
     handleSubmit,
   } = useForm();
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-  const [
-    createUserWithEmailAndPassword,
-    user,
-    loading,
-    error,
-  ] = useCreateUserWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const navigate = useNavigate();
   const location = useLocation();
   let signError;
@@ -29,20 +27,25 @@ const Register = () => {
   if (user || gUser) {
     navigate(from, { replace: true });
   }
-  if (error || gError) {
-    signError= <p className="text-red-500 mb-5">Error: {error?.message || gError?.message}</p>;
+  if (error || gError || updateError) {
+    signError = (
+      <p className="text-red-500 mb-5">
+        Error: {error?.message || gError?.message}
+      </p>
+    );
   }
-  if (loading || gLoading) {
-    return <Looding/>;
+  if (loading || gLoading || updating) {
+    return <Looding />;
   }
-  const onSubmit = (data) => {
-    createUserWithEmailAndPassword(data.email, data.password);
+  const onSubmit = async (data) => {
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile({ displayName: data.name });
   };
-  const hangleGoogle=()=>{
+  const hangleGoogle = () => {
     signInWithGoogle();
-  }
-    return (
-      <div className="flex h-screen justify-center items-center">
+  };
+  return (
+    <div className="flex h-screen justify-center items-center">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="text-center text-2xl font-bold">Sign Up</h2>
@@ -59,7 +62,7 @@ const Register = () => {
                   required: {
                     value: true,
                     message: "Name is Required",
-                  }
+                  },
                 })}
               />
               <label class="label">
@@ -87,7 +90,7 @@ const Register = () => {
                   required: {
                     value: true,
                     message: "Email is Required",
-                  }
+                  },
                 })}
               />
               <label class="label">
@@ -137,7 +140,13 @@ const Register = () => {
               value="Sign Up"
             />
           </form>
-          <p>Already have an account ?<Link to='/login' className='text-primary'> Please Login</Link></p>
+          <p>
+            Already have an account ?
+            <Link to="/login" className="text-primary">
+              {" "}
+              Please Login
+            </Link>
+          </p>
           <div className="divider">OR</div>
           <button className="btn btn-outline" onClick={hangleGoogle}>
             Continue with Google
@@ -145,7 +154,7 @@ const Register = () => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default Register;
