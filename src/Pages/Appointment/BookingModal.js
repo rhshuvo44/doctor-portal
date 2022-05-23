@@ -1,20 +1,45 @@
 import { format } from "date-fns";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
+import auth from "../../firebase.init";
 
-const BookingModal = ({ treatment,setTreatment, date }) => {
+const BookingModal = ({ treatment,setTreatment, date,refetch }) => {
   const {_id, name, slots } = treatment;
+  const treatmentDate=format(date, "PP");
   const handleBooking=e=>{
     e.preventDefault();
-    const id=_id;
-    const slot=e.target.slot.value;
-    const email=e.target.email.value;
-    const phone=e.target.phone.value;
-    const name=e.target.name.value;
-    const date=e.target.slot.value;
-    console.log(id,slot,name,email,phone,date);
-    setTreatment(null)
+   const booking= {
+     treatmentId:_id,
+    treatment:name,
+    date:treatmentDate,
+    slot:e.target.slot.value,
+    patient:user.email,
+    patientName:user.displayName,
+    phone:e.target.phone.value 
   }
+  fetch('http://localhost:5000/booking',{
+    method:"POST",
+    headers:{
+      'content-type':'application/json'
+    },
+    body:JSON.stringify(booking)
+  })
+  .then(res=>res.json())
+  .then(data=>{console.log(data)
+    if(data.success){
+      toast(`Appointment is set, ${treatmentDate} at ${e.target.slot.value}`)
+    }else{
+      toast.error(`Already have and appointment on ${data.booking?.date} at ${data.booking?.slot}`)
+    }
+    refetch()
+    setTreatment(null)
+  })
+    
+  }
+  const [user] = useAuthState(auth);
   return (
+    
     <div>
       <input type="checkbox" id="booking-modal" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
@@ -35,25 +60,30 @@ const BookingModal = ({ treatment,setTreatment, date }) => {
             />
             <select name="slot" className="select select-bordered w-full max-w-xs">
               {slots.map((slot,index) => (
-                <option key={index} value={slot}>{slot}</option>
+                <option name='slot' key={index} value={slot}>{slot}</option>
               ))}
             </select>
             <input
               name="name"
               type="text"
+              disabled
               placeholder="Full Name"
+              value={user?.displayName}
+              className="input input-bordered w-full max-w-xs"
+            />
+            
+            <input
+              name="email"
+              type="email"
+              disabled
+              value={user?.email}
+              placeholder="Email"
               className="input input-bordered w-full max-w-xs"
             />
             <input
               name="phone"
               type="text"
               placeholder="Phone Number"
-              className="input input-bordered w-full max-w-xs"
-            />
-            <input
-              name="email"
-              type="email"
-              placeholder="Email"
               className="input input-bordered w-full max-w-xs"
             />
             <input
