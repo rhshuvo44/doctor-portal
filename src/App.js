@@ -4,12 +4,14 @@ import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import About from "./Pages/About/About";
 import Appointment from "./Pages/Appointment/Appointment/Appointment";
+import AllUser from "./Pages/Dashboard/AllUser";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyAppointment from "./Pages/Dashboard/MyAppointment";
 import MyReview from "./Pages/Dashboard/MyReview";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Login/Register";
+import RequireAdmin from "./Pages/Login/RequireAdmin";
 import RequireAuth from "./Pages/Login/RequireAuth";
 import Reviews from "./Pages/Reviews/Reviews";
 import Footer from "./Pages/Share/Footer/Footer";
@@ -43,6 +45,7 @@ function App() {
         >
           <Route index element={<MyAppointment />} />
           <Route path="review" element={<MyReview />} />
+          <Route path="allUser" element={<RequireAdmin><AllUser /></RequireAdmin>} />
         </Route>
         <Route path="/reviews" element={<Reviews />} />
         <Route path="*" element={<NotFound />} />

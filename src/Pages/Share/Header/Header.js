@@ -69,7 +69,7 @@ const Header = () => {
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
       <div className="navbar-end">
-      <label for="dashboard-saidebar" tabIndex="1" className="btn btn-ghost lg:hidden">
+      <label for="dashboard-sidebar" tabIndex="1" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -86,7 +86,7 @@ const Header = () => {
             </svg>
           </label>
       {/* <label
-          for="dashboard-saidebar"
+          for="dashboard-sidebar"
           className="btn btn-primary drawer-button lg:hidden"
         >
           Open drawer
