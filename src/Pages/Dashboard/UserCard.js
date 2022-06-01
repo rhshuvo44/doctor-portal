@@ -11,15 +11,15 @@ const UserCard = ({ user, refetch }) => {
       },
     })
       .then((res) => {
-        if (res.status===403) {
-            toast.error('Failed to Make an Admin')
-        }  
-        res.json()})
+        if (res.status === 403) {
+          toast.error("Failed to Make an Admin");
+        }
+        res.json();
+      })
       .then((data) => {
-        if(data.modifiedCount > 0){
-        refetch()
-
-            toast.success("Make a Admin");
+        if (data.modifiedCount > 0) {
+          refetch();
+          toast.success("Make a Admin");
         }
       });
   };
@@ -27,13 +27,13 @@ const UserCard = ({ user, refetch }) => {
     <tr>
       <td>{email}</td>
       <td>
-        {role !== "admin" ? 
+        {role !== "admin" ? (
           <button onClick={makeAdmin} class="btn btn-xs">
             Make admin
-          </button> : <p class=" font-bold text-xl text-primary">
-            Already admin
-          </p>
-        }{" "}
+          </button>
+        ) : (
+          <p class=" font-bold text-xl text-primary">Already admin</p>
+        )}{" "}
       </td>
       <td>
         <button class="btn btn-xs">Remove user</button>
