@@ -16,7 +16,7 @@ const DoctorTable = ({ doctor, index,setDeleteDoctor }) => {
       <td>{name}</td>
       <td>{specialty}</td>
       <td>
-        <label onClick={()=>setDeleteDoctor(doctor)} for="remove-doctor-modal" class="btn btn-xs">
+        <label onClick={()=>setDeleteDoctor(doctor)} for="remove-doctor-modal" class="btn btn-xs ">
           Remove
         </label>
       </td>
