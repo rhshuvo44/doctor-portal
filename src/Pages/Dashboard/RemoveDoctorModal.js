@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 const RemoveDoctorModal = ({deleteDoctor,refetch,setDeleteDoctor}) => {
   const {name,email}=deleteDoctor;
   const removeDoctor = () => {
-    fetch(`http://localhost:5000/doctor/${email}`,{
+    fetch(`https://lit-everglades-81475.herokuapp.com/doctor/${email}`,{
       method:'DELETE'
     })
     .then(res=>res.json())
@@ -18,20 +18,20 @@ const RemoveDoctorModal = ({deleteDoctor,refetch,setDeleteDoctor}) => {
   };
   return (
     <div>
-      <input type="checkbox" id="remove-doctor-modal" class="modal-toggle" />
-      <div class="modal">
-        <div class="modal-box">
-          <h3 class="font-bold text-primary">
+      <input type="checkbox" id="remove-doctor-modal" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box">
+          <h3 className="font-bold text-primary">
              {name}
           </h3>
-          <p class="py-4 text-red-500 text-lg">
+          <p className="py-4 text-red-500 text-lg">
           Are you want to deleted confirm!
           </p>
-          <div class="modal-action">
-          <label onClick={removeDoctor} for="remove-doctor-modal"  class="btn btn-xs">
+          <div className="modal-action">
+          <label onClick={removeDoctor} for="remove-doctor-modal"  className="btn btn-xs">
               Confirm
             </label>
-            <label for="remove-doctor-modal" class="btn btn-xs">
+            <label for="remove-doctor-modal" className="btn btn-xs">
              Cancle
             </label>
           </div>

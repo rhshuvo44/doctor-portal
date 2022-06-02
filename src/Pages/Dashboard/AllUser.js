@@ -9,7 +9,7 @@ const AllUser = () => {
     refetch,
     data: users,
   } = useQuery("users", () =>
-    fetch(`http://localhost:5000/user`).then((res) => res.json())
+    fetch(`https://lit-everglades-81475.herokuapp.com/user`).then((res) => res.json())
   );
 
   if (isLoading) return <Looding />;
@@ -18,8 +18,8 @@ const AllUser = () => {
       <h2 className="py-5 font-bold text-2xl capitalize text-primary">
         All Users
       </h2>
-      <div class="overflow-x-auto">
-        <table class="table w-full">
+      <div className="overflow-x-auto">
+        <table className="table w-full">
           <thead>
             <tr>
               <th>Email</th>

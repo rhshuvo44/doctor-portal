@@ -11,14 +11,14 @@ const ManageDoctor = () => {
     isLoading,
     refetch,
   } = useQuery("doctors", () =>
-    fetch("http://localhost:5000/doctor").then((res) => res.json())
+    fetch("https://lit-everglades-81475.herokuapp.com/doctor").then((res) => res.json())
   );
   if (isLoading) return <Looding />;
   return (
     <div className="p-10">
       <h1 className="text-2xl py-5">Manage Doctors</h1>
-      <div class="overflow-x-auto">
-        <table class="table w-full">
+      <div className="overflow-x-auto">
+        <table className="table w-full">
           <thead>
             <tr>
               <th></th>

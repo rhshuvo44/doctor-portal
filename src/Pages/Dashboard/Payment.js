@@ -11,7 +11,7 @@ const stripePromise = loadStripe('pk_test_51L5saqAqlGujQC2wq9MHnFEpO0G6SNB7K5XtO
 
 const Payment = () => {
   const { id } = useParams();
-  const url = `http://localhost:5000/booking/${id}`;
+  const url = `https://lit-everglades-81475.herokuapp.com/booking/${id}`;
   const { data: appointment, isLoading } = useQuery(["booking", id], () =>
     fetch(url).then((res) => res.json())
   );
@@ -19,16 +19,16 @@ const Payment = () => {
     return <Looding />;
   }
   return <div className="grid justify-center py-10">
-      <div class="card bg-base-100 shadow-xl mb-10">
-  <div class="card-body">
+      <div className="card bg-base-100 shadow-xl mb-10">
+  <div className="card-body">
       <p className="text-success">Hello, {appointment.patientName}</p>
-    <h2 class=" text-center font-bold text-2xl">Pay for {appointment.treatment}</h2>
+    <h2 className=" text-center font-bold text-2xl">Pay for {appointment.treatment}</h2>
     <p>We will see you on {appointment.date} at {appointment.slot}</p>
     <p className="text-xl">Please pay : $ {appointment.price}</p>
   </div>
 </div>
-<div class="card bg-base-100 shadow-xl">
-  <div class="card-body">
+<div className="card bg-base-100 shadow-xl">
+  <div className="card-body">
   <Elements stripe={stripePromise}>
       <CheckoutForm appointment={appointment}/>
     </Elements>

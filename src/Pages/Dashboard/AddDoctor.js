@@ -7,7 +7,7 @@ import Looding from "../Share/Looding";
 const AddDoctor = () => {
   const { register, handleSubmit, reset } = useForm();
   const { data: services, isLoading } = useQuery("services", () =>
-    fetch("http://localhost:5000/service").then((res) => res.json())
+    fetch("https://lit-everglades-81475.herokuapp.com/service").then((res) => res.json())
   );
   if (isLoading) {
     return <Looding />;
@@ -32,7 +32,7 @@ const AddDoctor = () => {
             specialty: data.specialty,
             img: img,
           };
-          fetch("http://localhost:5000/doctor", {
+          fetch("https://lit-everglades-81475.herokuapp.com/doctor", {
             method: "POST",
             headers: {
               "content-type": "application/json",

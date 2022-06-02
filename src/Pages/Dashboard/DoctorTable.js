@@ -7,8 +7,8 @@ const DoctorTable = ({ doctor, index,setDeleteDoctor }) => {
     <tr>
       <td>{index + 1}</td>
       <td>
-        <div class="avatar">
-          <div class="w-8 rounded">
+        <div className="avatar">
+          <div className="w-8 rounded">
             <img src={img} alt={name} />
           </div>
         </div>
@@ -16,7 +16,7 @@ const DoctorTable = ({ doctor, index,setDeleteDoctor }) => {
       <td>{name}</td>
       <td>{specialty}</td>
       <td>
-        <label onClick={()=>setDeleteDoctor(doctor)} for="remove-doctor-modal" class="btn btn-xs ">
+        <label onClick={()=>setDeleteDoctor(doctor)} for="remove-doctor-modal" className="btn btn-xs ">
           Remove
         </label>
       </td>

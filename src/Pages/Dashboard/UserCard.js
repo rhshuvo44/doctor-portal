@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 const UserCard = ({ user, refetch }) => {
   const { email, role } = user;
   const makeAdmin = () => {
-    fetch(`http://localhost:5000/user/admin/${email}`, {
+    fetch(`https://lit-everglades-81475.herokuapp.com/user/admin/${email}`, {
       method: "PUT",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -28,15 +28,15 @@ const UserCard = ({ user, refetch }) => {
       <td>{email}</td>
       <td>
         {role !== "admin" ? (
-          <button onClick={makeAdmin} class="btn btn-xs">
+          <button onClick={makeAdmin} className="btn btn-xs">
             Make admin
           </button>
         ) : (
-          <p class=" font-bold text-xl text-primary">Already admin</p>
+          <p className=" font-bold text-xl text-primary">Already admin</p>
         )}{" "}
       </td>
       <td>
-        <button class="btn btn-xs">Remove user</button>
+        <button className="btn btn-xs">Remove user</button>
       </td>
     </tr>
   );
